@@ -1,13 +1,9 @@
 (function () {
 	"use strict";
 
-	var config = {
+	module.exports = {
 		logging: {
 			level: "INFO"
 		}
-	};
-
-	module.exports.get = function () {
-		return config;
 	};
 })();

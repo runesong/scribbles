@@ -15,7 +15,7 @@
 				log.debug(JSON.stringify(request.headers));
 			}
 
-			var resourceHandler = resources.find(uri.pathname);
+			var resourceHandler = resources[uri.pathname];
 			if (resourceHandler) {
 				try {
 					var methodHandler = resourceHandler[request.method];
@@ -24,13 +24,13 @@
 					}
 					methodHandler.service(request, response);
 				} catch (e) {
-					errors.find(405).service(request, response, e);
+					errors[405].service(request, response, e);
 				}
 			} else {
-				errors.find(404).service(request, response);
+				errors[404].service(request, response);
 			}
 		} catch (e) {
-			errors.find(500).service(request, response, e);
+			errors[500].service(request, response, e);
 		}
 	}).listen(3000);
 

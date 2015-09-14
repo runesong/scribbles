@@ -20,7 +20,7 @@
 		return undefined;
 	}
 
-	var resources = {
+	var resources = module.exports = {
 		"/": {
 			GET: {
 				service: function (request, response) {
@@ -62,9 +62,5 @@
 				"produces" : "application/json"
 			}
 		}
-	};
-
-	module.exports.find = function (uri) {
-		return resources[uri];
-	};
+	}
 })();
