@@ -20,9 +20,24 @@
 		return undefined;
 	}
 
+	/**
+	 * Resource request handler mapping.
+	 *
+	 * @type {{/: {GET: {service: Function, produces: string}}, /demo-ws/v1.0: {GET: {service: Function, produces: string}}, /error: {*: {service: Function, produces: string}}}}
+	 */
 	var resources = module.exports = {
+
+		/**
+		 * The root web resource (forwards to the API resource endpoint)
+		 */
 		"/": {
 			GET: {
+				/**
+				 * Handles GET requests for the root resource and forwards to the API resource.
+				 *
+				 * @param request  the web service request
+				 * @param response the web service response
+				 */
 				service: function (request, response) {
 					response.writeHead(301, "Moved Permanently", {
 						"Content-Type": "application/json",
@@ -32,8 +47,18 @@
 				"produces" : "application/json"
 			}
 		},
+
+		/**
+		 * The API resource.
+		 */
 		"/demo-ws/v1.0": {
 			"GET": {
+				/**
+				 * Handles GET requests for the API resource.
+				 *
+				 * @param request  the web service request
+				 * @param response the web service response
+				 */
 				service: function (request, response) {
 					response.writeHead(300, "Multiple Choices", {
 						"Content-Type": "application/json"});
@@ -43,8 +68,18 @@
 				"produces" : "application/json"
 			}
 		},
+
+		/**
+		 * The error page resource.
+		 */
 		"/error": {
 			"*": {
+				/**
+				 * Handles forwarded requests to the error resource.
+				 *
+				 * @param request  the web service request
+				 * @param response the web service response
+				 */
 				service: function (request, response, status, reason) {
 					if (!status) {
 						status = 999;

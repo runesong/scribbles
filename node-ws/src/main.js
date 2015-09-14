@@ -1,11 +1,15 @@
 (function () {
 	"use strict";
 
+	// Core Node.js modules
 	var HTTP = require("http");
 	var URL = require("url");
+
+	// My modules
+	var config    = require("./config");
 	var resources = require("./resources");
-	var errors = require("./errors");
-	var log = require("./logging");
+	var errors    = require("./errors");
+	var log       = require("./logging");
 
 	HTTP.createServer(function (request, response) {
 		try {
@@ -32,7 +36,7 @@
 		} catch (e) {
 			errors[500].service(request, response, e);
 		}
-	}).listen(3000);
+	}).listen(config.server.port);
 
-	console.log("Server running on port " + 3000);
+	console.log("Server running on port " + config.server.port);
 })();
