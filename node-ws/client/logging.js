@@ -40,7 +40,7 @@
 		 */
 		error : function(message, ex) {
 			if (currentLevel <= Level.ERROR) {
-				console.log.apply(this, arguments);
+				console.error.apply(this, arguments);
 			}
 		},
 
@@ -52,7 +52,7 @@
 		 */
 		warn : function(message, ex) {
 			if (currentLevel <= Level.WARN) {
-				console.log.apply(this, arguments);
+				console.warn.apply(this, arguments);
 			}
 		},
 

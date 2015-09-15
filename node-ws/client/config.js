@@ -5,15 +5,18 @@
 
 	/**
 	 * Configuration properties.
-	 *
-	 * @type {{logging: {level: string}, server: {port: number}}}
 	 */
 	module.exports = {
 		logging: {
 			level: "INFO"
 		},
-		server: {
-			port : 3000
+		http:    {
+			services: {
+				"demo-ws@1.0": {
+					url: "http://localhost:3000/demo-ws/v1.0"
+				}
+			}
 		}
 	};
 })();
+
