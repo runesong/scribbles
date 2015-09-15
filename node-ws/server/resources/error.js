@@ -11,7 +11,7 @@
 			path: request.url
 		}));
 		response.end();
-	};
+	}
 
 	module.exports = {
 		"id" : "error",

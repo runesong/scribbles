@@ -1,8 +1,8 @@
 (function () {
 	"use strict";
 
-	var HTTP = require("http");
-	var URL  = require("url");
+	var http = require("http");
+	var url  = require("url");
 
 	var config    = require("./config");
 	var resources = require("./resources");
@@ -10,17 +10,16 @@
 
 	function handleError(request, response, status, e) {
 		response.statusCode = status;
-		response.statusMessage = HTTP.STATUS_CODES[response.statusCode];
-		log.error(request.method + " " + request.url + " : " + response.statusCode + " " + response.statusMessage);
+		log.error("%s %s : %s %s", request.method, request.url, response.statusCode, response.statusMessage);
 		if (e !== undefined) {
 			log.error(e.stack);
 		}
 		resources.requestMappings["/error"]["GET"].service(request, response);
 	}
 
-	HTTP.createServer(function (request, response) {
+	http.createServer(function (request, response) {
 		try {
-			var uri = URL.parse(request.url);
+			var uri = url.parse(request.url);
 
 			log.debug("Request: %j", request.headers);
 

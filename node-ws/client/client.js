@@ -1,13 +1,13 @@
 (function () {
 	"use strict";
 
-	var HTTP = require("http");
-	var URL = require("url");
+	var http = require("http");
+	var url = require("url");
 
 	var config = require("./config");
 	var log    = require("./logging");
 
-	var uri = URL.parse(config.http.services["demo-ws@1.0"].url);
+	var uri = url.parse(config.http.services["demo-ws@1.0"].url);
 
 	module.exports = {
 		get : function (pathname, callback) {
@@ -20,7 +20,7 @@
 				headers:  {"Accept": "application/*+json"}
 			};
 
-			var request = HTTP.request(apiResource, function (response) {
+			var request = http.request(apiResource, function (response) {
 				var body = "";
 				response.on("data", function(chunk) {
 					body += chunk;
@@ -44,7 +44,7 @@
 				headers:  {"Accept": "application/*+json"}
 			};
 
-			var request = HTTP.request(apiResource, function (response) {
+			var request = http.request(apiResource, function (response) {
 				var body = "";
 				response.on("data", function(chunk) {
 					body += chunk;

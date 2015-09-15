@@ -9,7 +9,7 @@
 			"Location": api.resource.href
 		});
 		response.end();
-	};
+	}
 
 	module.exports = {
 		"id" : "root",
