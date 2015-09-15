@@ -1,6 +1,6 @@
-# scribbles
+# Scribbles
 
-## Node Web Service
+## Node.js Web Service
 
 A barebones starter project for a Node.js web service and web service client.
 
@@ -9,7 +9,7 @@ This project consists of two applications:
 - [server](./node-ws/server) the web service application
 - [client](./node-ws/client) the web service client application
 
-### Running
+### Getting Started
 
 To run the [web service](./node-ws/server/):
 
