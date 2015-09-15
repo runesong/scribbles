@@ -29,7 +29,7 @@ The client will connect to `localhost` on port `3000` and issue a series of requ
 ### Resource API
 
 API resource modules can be defined as illustrated by the [example](./node-ws/server/resources/example.js) module.
-New modules can then be added to the [config](./node-ws/server/config.js) module.
+New modules can then be added as `resources` in the [config](./node-ws/server/config.js) module.
 
 The web service resource API is published at `http://localhost:3000/demo-ws/v1.0`:
 
