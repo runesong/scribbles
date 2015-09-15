@@ -7,8 +7,7 @@
 	}
 
 	client.get("/", function (statusCode, statusMessage, headers) {
-		console.log("%s %s", statusCode, statusMessage);
-		console.log("%j", headers);
+		console.log("%s %s\n    %j", statusCode, statusMessage, headers);
 
 		assert.equal(statusCode, 301);
 		assert.equal(statusMessage, "Moved Permanently");
@@ -16,8 +15,7 @@
 	});
 
 	client.get("/error", function (statusCode, statusMessage, headers, data) {
-		console.log("%j", headers);
-		console.log(prettyprint(data));
+		console.log("%s %s\n    %j %s", statusCode, statusMessage, headers, prettyprint(data));
 
 		assert.equal(statusCode, 200);
 		assert.equal(statusMessage, "OK");
@@ -29,8 +27,7 @@
 	});
 
 	client.get("/foo/diddle/dee", function (statusCode, statusMessage, headers, data) {
-		console.log("%j", headers);
-		console.log(prettyprint(data));
+		console.log("%s %s\n    %j %s", statusCode, statusMessage, headers, prettyprint(data));
 
 		assert.equal(statusCode, 404);
 		assert.equal(statusMessage, "Not Found");
@@ -42,8 +39,7 @@
 	});
 
 	client.post("/demo-ws/v1.0", function (statusCode, statusMessage, headers, data) {
-		console.log("%j", headers);
-		console.log(prettyprint(data));
+		console.log("%s %s\n    %j %s", statusCode, statusMessage, headers, prettyprint(data));
 
 		assert.equal(statusCode, 405);
 		assert.equal(statusMessage, "Method Not Allowed");
@@ -55,8 +51,7 @@
 	});
 
 	client.get("/demo-ws/v1.0", function (statusCode, statusMessage, headers, data) {
-		console.log("%j", headers);
-		console.log(prettyprint(data));
+		console.log("%s %s\n    %j %s", statusCode, statusMessage, headers, prettyprint(data));
 
 		assert.equal(statusCode, 300);
 		assert.equal(statusMessage, "Multiple Choices");
@@ -70,5 +65,15 @@
 
 		assert.equal(data.error.href, "http://localhost:3000/error");
 		assert.equal(data.error.methods.GET.produces, "application/json");
+	});
+
+	client.get("/demo-ws/v1.0/example", function(statusCode, statusMessage, headers, data) {
+		console.log("%s %s %j %s", statusCode, statusMessage, headers, prettyprint(data));
+
+		assert.equal(statusCode, 200);
+		assert.equal(statusMessage, "OK");
+		assert.equal(headers["content-type"], "application/json");
+
+		assert.equal(data.message, "Hello, World!");
 	});
 })();

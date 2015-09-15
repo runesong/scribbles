@@ -13,8 +13,9 @@
 		},
 		resources: [
 			"./resources/root",
-			"./resources/api",
-			"./resources/error"
+			"./resources/api-root",
+			"./resources/error",
+			"./resources/example"
 		]
 	};
 

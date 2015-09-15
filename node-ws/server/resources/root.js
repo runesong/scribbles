@@ -1,26 +1,15 @@
 (function () {
 	"use strict";
 
-	var api = require("./api");
+	var apiPath = require("./api-root").resource.href;
+	var api = require("../api");
 
-	function _service(request, response) {
-		response.writeHead("301", {
-			"Content-Type": "application/json",
-			"Location": api.resource.href
+	module.exports = api.resource("root", "/").
+		get(function (request, response) {
+			response.writeHead("301", {
+				"Content-Type": "application/json",
+				"Location": apiPath
+			});
+			response.end();
 		});
-		response.end();
-	}
-
-	module.exports = {
-		"id" : "root",
-		"resource": {
-			"href": "/",
-			"methods" : {
-				"GET" : {
-					produces : "application/json",
-					service: _service
-				}
-			}
-		}
-	}
 })();

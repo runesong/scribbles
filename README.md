@@ -1,15 +1,57 @@
 # scribbles
 
-## Step 1: Run the server
+## Node Web Service
+
+A barebones starter project for a Node.js web service and web service client.
+
+### Running
+
+To run the server:
 
 ```sh
-node server/main.js
+node node-ws/server/main.js
 ```
-## Step 2: Run the client
+to run the client:
 
 ```sh
-node client/main.js
+node node-ws/client/main.js
 ```
 
-## Step 3: Customize
+### Resource API
+
+The base resource API is published at `http://localhost:3000/demo-ws/v1.0`.
+
+```json
+{
+    "root": {
+        "href": "http://localhost:3000/",
+        "methods": {
+            "GET": {
+                "produces": "application/json"
+            }
+        }
+    },
+    "api": {
+        "href": "http://localhost:3000/demo-ws/v1.0",
+        "methods": {
+            "GET": {
+                "produces": "application/json"
+            }
+        }
+    },
+    "error": {
+        "href": "http://localhost:3000/error",
+        "methods": {
+            "GET": {
+                "produces": "application/json"
+            }
+        }
+    }
+}
+```
+
+### Adding a New Resource Module
+
+Additional resource modules can be defined as illustrated by the the [example](./node-ws/server/resources/example.js)
+module, and then added to the configuration.
 

@@ -2,6 +2,7 @@
 	"use strict";
 
 	var config = require("../config");
+	var api = require("../api");
 
 	function _baseuri(request) {
 		var host = request.headers["host"].split(/:/);
@@ -15,30 +16,18 @@
 		return protocol + "://" + hostname + (port ? ":" + port : "");
 	}
 
-	function _service(request, response) {
-		var resources = require("../resources");
-		response.writeHead("300", {
-			"Content-Type": "application/json"
-		});
-		response.write(JSON.stringify(resources.api, function (key, value) {
-			if (key == "href") {
-				return _baseuri(request) + value;
-			}
-			return value;
-		}));
-		response.end();
-	}
-
-	module.exports = {
-		"id" : "api",
-		"resource": {
-			"href": "/demo-ws/v1.0",
-			"methods" : {
-				"GET" : {
-					produces : "application/json",
-					service: _service
+	module.exports = api.resource("api", "/demo-ws/v1.0").
+		get(function (request, response) {
+			var resources = require("../resources");
+			response.writeHead("300", {
+				"Content-Type": "application/json"
+			});
+			response.write(JSON.stringify(resources.api, function (key, value) {
+				if (key == "href") {
+					return _baseuri(request) + value;
 				}
-			}
-		}
-	}
+				return value;
+			}));
+			response.end();
+		});
 })();
