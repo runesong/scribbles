@@ -12,7 +12,7 @@
 		response.statusCode = status;
 		response.statusMessage = HTTP.STATUS_CODES[response.statusCode];
 		log.error(request.method + " " + request.url + " : " + response.statusCode + " " + response.statusMessage);
-		if (e !== undefined && log.isLoggable("ERROR")) {
+		if (e !== undefined) {
 			log.error(e.stack);
 		}
 		resources.requestMappings["/error"]["GET"].service(request, response);
