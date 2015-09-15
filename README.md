@@ -4,14 +4,19 @@
 
 A barebones starter project for a Node.js web service and web service client.
 
+This project consists of two applications:
+
+- [server](./node-ws/server) the web service application
+- [client](./node-ws/client) the web service client application
+
 ### Running
 
-To run the [server](./node-ws/server/):
+To run the [web service](./node-ws/server/):
 
 ```sh
 node node-ws/server/main.js
 ```
-To run the [client](./node-ws/client/):
+To run the web service [client](./node-ws/client/):
 
 ```sh
 node node-ws/client/main.js
