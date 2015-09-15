@@ -21,6 +21,9 @@ node node-ws/client/main.js
 
 The base resource API is published at `http://localhost:3000/demo-ws/v1.0`.
 
+Additional resource modules can be defined as illustrated by the the [example](./node-ws/server/resources/example.js)
+module, and then added to the configuration.
+
 ```json
 {
     "root": {
@@ -70,9 +73,4 @@ The base resource API is published at `http://localhost:3000/demo-ws/v1.0`.
         }
     }
 }```
-
-### Adding a New Resource Module
-
-Additional resource modules can be defined as illustrated by the the [example](./node-ws/server/resources/example.js)
-module, and then added to the configuration.
 
