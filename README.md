@@ -72,5 +72,6 @@ module, and then added to the configuration.
             "DELETE": {}
         }
     }
-}```
+}
+```
 
