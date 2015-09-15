@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 
-	var service = function (request, response) {
+	function _service(request, response) {
 		response.writeHead(response.statusCode, {
 			"Content-Type": "application/json"
 		});
@@ -20,7 +20,7 @@
 			"methods" : {
 				"GET" : {
 					produces : "application/json",
-					service: service
+					service: _service
 				}
 			}
 		}

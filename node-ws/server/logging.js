@@ -15,7 +15,7 @@
 	var currentLevel = Level[config.logging.level];
 
 	/**
-	 * Logging support.
+	 * Filterable logging support.
 	 *
 	 * @type {{isLoggable: Function, error: Function, warn: Function, info: Function, debug: Function}}
 	 */

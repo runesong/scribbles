@@ -3,7 +3,7 @@
 
 	var api = require("./api");
 
-	var service = function (request, response) {
+	function _service(request, response) {
 		response.writeHead("301", {
 			"Content-Type": "application/json",
 			"Location": api.resource.href
@@ -18,7 +18,7 @@
 			"methods" : {
 				"GET" : {
 					produces : "application/json",
-					service: service
+					service: _service
 				}
 			}
 		}
