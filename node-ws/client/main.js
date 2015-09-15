@@ -6,7 +6,7 @@
 		return JSON.stringify(o, null, "    ");
 	}
 
-	client.get("/", function (statusCode, statusMessage, headers, data) {
+	client.get("/", function (statusCode, statusMessage, headers) {
 		console.log("%s %s", statusCode, statusMessage);
 		console.log("%j", headers);
 
