@@ -18,19 +18,19 @@
             response.writeHead("200", { "Content-Type": "application/json" });
             response.end();
         }).
-        put(function () {
+        put(function (request, response) {
             response.writeHead("201");
             response.end();
         }).
-        patch(function () {
+        patch(function (request, response) {
             response.writeHead("204");
             response.end();
         }).
-        post(function () {
+        post(function (request, response) {
             response.writeHead("204");
             response.end();
         }).
-        delete(function () {
+        delete(function (request, response) {
             response.writeHead("204");
             response.end();
         });
