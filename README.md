@@ -46,9 +46,30 @@ The base resource API is published at `http://localhost:3000/demo-ws/v1.0`.
                 "produces": "application/json"
             }
         }
+    },
+    "example": {
+        "href": "http://localhost:3000/demo-ws/v1.0/example",
+        "methods": {
+            "GET": {
+                "produces": "application/json"
+            },
+            "HEAD": {},
+            "PUT": {
+                "consumes": "application/json",
+                "produces": "application/json"
+            },
+            "PATCH": {
+                "consumes": "application/json",
+                "produces": "application/json"
+            },
+            "POST": {
+                "consumes": "application/json",
+                "produces": "application/json"
+            },
+            "DELETE": {}
+        }
     }
-}
-```
+}```
 
 ### Adding a New Resource Module
 
