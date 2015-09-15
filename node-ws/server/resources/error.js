@@ -4,7 +4,7 @@
 	var api = require("../api");
 
 	module.exports = api.resource("error", "/error").
-		get(function _service(request, response) {
+		get(function (request, response) {
 			response.writeHead(response.statusCode, {
 				"Content-Type": "application/json"
 			});
