@@ -6,23 +6,24 @@ A barebones starter project for a Node.js web service and web service client.
 
 ### Running
 
-To run the server:
+To run the [server](./node-ws/server/):
 
 ```sh
 node node-ws/server/main.js
 ```
-to run the client:
+To run the [client](./node-ws/client/):
 
 ```sh
 node node-ws/client/main.js
 ```
+The client runs a series of tests against the server and then exits.
 
 ### Resource API
 
-The base resource API is published at `http://localhost:3000/demo-ws/v1.0`.
+API resource modules can be defined as illustrated by the the [example](./node-ws/server/resources/example.js) module.
+New modules can then be added to the configuration.
 
-Additional resource modules can be defined as illustrated by the the [example](./node-ws/server/resources/example.js)
-module, and then added to the configuration.
+The base resource API is published at `http://localhost:3000/demo-ws/v1.0`:
 
 ```json
 {
